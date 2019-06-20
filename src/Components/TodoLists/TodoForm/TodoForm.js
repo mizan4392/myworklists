@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import uuid from 'uuid/v4';
 import './TodoForm.css'; 
 
 
@@ -20,9 +21,9 @@ class TodoForm extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.CreateTodos(this.state);
+        this.props.CreateTodos({...this.state,id:uuid()});
         this.setState({task:""});
-
+ 
     }
 
     render() {
