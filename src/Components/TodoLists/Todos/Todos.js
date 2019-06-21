@@ -14,6 +14,7 @@ class Todos extends Component {
         this.toggleForm = this.toggleForm.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handletoggle = this.handletoggle.bind(this);
     }
 
     handelRemove(){
@@ -32,6 +33,11 @@ class Todos extends Component {
         this.setState({
             [e.target.name]:e.target.value
         })
+    }
+    handletoggle(e){
+        e.preventDefault();
+        this.props.toggleComplition(this.props.id);
+
     }
 
     render() {
@@ -52,7 +58,7 @@ class Todos extends Component {
 <               div>
                     <button onClick={this.toggleForm}>Edit</button>
                     <button onClick={this.handelRemove}>Delete</button>
-                    <li>{this.props.task}</li>
+                    <li className={this.props.completed ? "Completed" : ""} onClick={this.handletoggle}>{this.props.task}</li>
                 </div>
             )
         }

@@ -21,7 +21,7 @@ class TodoForm extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.CreateTodos({...this.state,id:uuid()});
+        this.props.CreateTodos({...this.state,id:uuid(),completed:false});
         this.setState({task:""});
  
     }
