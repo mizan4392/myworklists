@@ -1,4 +1,67 @@
-.Completed{
-    color: gray;
-    text-decoration: line-through;
+.Todo{
+    display: flex;
+    margin: 0 --3rem 4px;
+    padding: 1.1rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255 ,255, .1);
+}
+.Todo-task{
+    position: relative;
+    transition: opacity .4s linear;
+}
+.Todo-task.Completed{
+    opacity: .6;
+} 
+.Todo-task.Completed::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -.5rem;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    animation: strikeitem .5s ease-out 0s forwards;
+}
+.Todo-button button{
+    border: none;
+    font-size: 1em;
+    margin: .4em;
+    background: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    color: #fff;
+}
+.Todo-form input{
+    flex-grow: 1;
+    border: none;
+    background: #f7f1f1;
+    padding: 0 1.5em;
+    font-size: initial;
+}
+.Todo-form button{
+    padding: 0 1.3rem;
+    border: none;
+    background: #ff6666;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1px solid rgba(255, 255 ,255, .3);
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background .2s ease-out;
+}
+.Todo-form button:hover{
+    background: #ff5e5e;
+}
+.Todo-form input,
+.Todo-button{
+    font-family: "Quicksand" ,sans-serif;
+    height: 3rem;
+}
+@keyframes strikeitem{
+    to{
+        width: calc(100% + 1.1rem);
+    }
 }

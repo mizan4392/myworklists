@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Todos.css';
+import pen from '../../../icons/pen-solid.svg';
+import edite from '../../../icons/trash-solid.svg';
 
 
 class Todos extends Component {
@@ -40,14 +42,15 @@ class Todos extends Component {
 
     }
 
+
     render() {
 
         let result;
 
         if(this.state.isEditing){
             result =(
-                <div>
-                    <form onSubmit={this.handleUpdate}>
+                <div className="Todo">
+                    <form onSubmit={this.handleUpdate} className="Todo-form">
                         <input type='text' value={this.state.task} name="task" onChange={this.handleChange}/>
                         <button>Save</button>
                     </form>
@@ -55,10 +58,12 @@ class Todos extends Component {
             )   
         }else{
             result =(
-<               div>
-                    <button onClick={this.toggleForm}>Edit</button>
-                    <button onClick={this.handelRemove}>Delete</button>
-                    <li className={this.props.completed ? "Completed" : ""} onClick={this.handletoggle}>{this.props.task}</li>
+               <div className="Todo">
+                    <li className={this.props.completed ? "Todo-task Completed" : "Todo-task"} onClick={this.handletoggle}>{this.props.task}</li>
+                    <div className="Todo-button">
+                        <button onClick={this.toggleForm}><img src={pen} height="20px" width="20px"></img></button>
+                        <button onClick={this.handelRemove}><img src={edite} height="20px" width="20px"></img></button>
+                    </div>
                 </div>
             )
         }
