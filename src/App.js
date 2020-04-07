@@ -1,13 +1,20 @@
 import React from 'react';
 import './App.css';
 import TodoLists from './Components/TodoLists/TodoLists';
+import NavBar from './Components/NavBar/NavBar';
 
-function App() {
-  return (
-    <div className="App">
-       <TodoLists />
-    </div>
-  );
+class App extends React.Component{
+
+  render(){
+    
+    return (
+      <div className="App">
+        <NavBar />
+         <TodoLists />
+      </div>
+    );
+  }
 }
+
 
 export default App;
