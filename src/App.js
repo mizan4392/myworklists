@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import * as ROUTE from './utils/Routs'
 import Home from './Pages/Home';
+import Todos from './Components/Todos'
 
 class App extends React.Component {
 
@@ -24,10 +25,11 @@ class App extends React.Component {
           <Router>
           <Container>
             <Route exact path={ROUTE.ROOT} component={withRouter(Home)} />
-            </Container>
+            <Route exact path={ROUTE.TODOS} component={withRouter(Todos)} />
+          </Container>
           </Router>
         
-        {/* <TodoLists /> */}
+        
       </div>
     );
   }

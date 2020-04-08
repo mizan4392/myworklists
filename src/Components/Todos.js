@@ -5,11 +5,12 @@ import {
     ListItemAvatar,
     ListItemText,
     ListItemSecondaryAction,
-    IconButton, Avatar,
+    IconButton, Tooltip,
     Button
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
-import FolderIcon from '@material-ui/icons/Folder';
+import EditIcon from '@material-ui/icons/Edit';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 
 class Todos extends Component {
@@ -24,18 +25,29 @@ class Todos extends Component {
             return (
                 <ListItem>
                     <ListItemAvatar>
-                        <Avatar>
-                            <FolderIcon />
-                        </Avatar>
+                        <IconButton>
+                            <Tooltip title="Detailes">
+                                <VisibilityIcon />
+                            </Tooltip>
+                        </IconButton>
+
                     </ListItemAvatar>
                     <ListItemText
                         primary="Single-line item"
                         secondary='Secondary text'
                     />
                     <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                            <DeleteIcon />
+                        <IconButton edge="end" aria-label="edit">
+                            <Tooltip title="Edit">
+                                <EditIcon />
+                            </Tooltip>
                         </IconButton>
+                        <IconButton edge="end" aria-label="delete">
+                            <Tooltip title="Delete">
+                                <DeleteIcon />
+                            </Tooltip>
+                        </IconButton>
+
                     </ListItemSecondaryAction>
                 </ListItem>
             )
@@ -43,12 +55,12 @@ class Todos extends Component {
 
 
         return (
-            <div>
+            <div style={{ marginTop: '8%' }}>
                 <h3 style={{ textAlign: 'center', background: 'black', color: '#fff', padding: '10px' }}> Todos </h3>
                 <List >
                     {renderTodosList}
-                    <ListItem style={{display:'flex',justifyContent:'center',background: 'green'}}>
-                        <Button style={{textAlign:'center',color:'#fff'}}>Create New Todos</Button>
+                    <ListItem style={{ display: 'flex', justifyContent: 'center', background: 'green' }}>
+                        <Button style={{ textAlign: 'center', color: '#fff' ,width:'100%'}}>Create New Todos</Button>
                     </ListItem>
                 </List>
             </div>

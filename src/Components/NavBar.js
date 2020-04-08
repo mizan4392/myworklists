@@ -83,7 +83,7 @@ class NavBar extends Component {
 
 
         return (
-            <AppBar position="static" className={classes.AppBar}>
+            <AppBar position="fixed" className={classes.AppBar}>
                 <Container>
                     <Toolbar className={classes.Toolbar}>
                         <div>
