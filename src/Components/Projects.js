@@ -14,10 +14,7 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-
-import { withRouter } from 'react-router-dom'
-
-
+import {withRouter} from 'react-router-dom'
 
 const styles = theme => ({
     Todos: {
@@ -39,14 +36,8 @@ const styles = theme => ({
     }
 })
 
-
-class Todos extends Component {
-
-    state = {
-
-    }
+class Projects extends Component {
     render() {
-
         const { classes } = this.props
         const renderTodosList = [1, 2, 3, 4].map(i => {
             return (
@@ -80,21 +71,18 @@ class Todos extends Component {
             )
         })
 
-
         return (
             <div style={{ marginTop: '9%' }}>
                 <Paper>
-                    <h3 className={classes.Todos} onClick={() => {
-                        
-                        if(this.props.history.location.pathname !== "/todos"){
-                            this.props.history.push('/todos')
+                    <h3 className={classes.Todos} onClick={()=>{
+                        if(this.props.history.location.pathname !== "/projects"){
+                            this.props.history.push('/projects')
                         }
-                        
-                    }}> Todos </h3>
+                    }}> Projects </h3>
                     <List >
                         {renderTodosList}
                         <ListItem className={classes.ListItem}>
-                            <Button className={classes.CreateTodos}>Create New Todos</Button>
+                            <Button className={classes.CreateTodos} >Create New Projects</Button>
                         </ListItem>
                     </List>
                 </Paper>
@@ -102,5 +90,4 @@ class Todos extends Component {
         )
     }
 }
-
-export default withStyles(styles)(withRouter(Todos))
+export default  withStyles(styles)(withRouter(Projects))
