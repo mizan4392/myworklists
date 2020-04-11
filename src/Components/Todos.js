@@ -50,7 +50,7 @@ class Todos extends Component {
         const { classes } = this.props
         const renderTodosList = [1, 2, 3, 4].map(i => {
             return (
-                <ListItem>
+                <ListItem key={i}>
                     <ListItemAvatar>
                         <IconButton>
                             <Tooltip title="Detailes">

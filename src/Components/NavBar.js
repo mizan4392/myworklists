@@ -9,6 +9,7 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AddIcon from '@material-ui/icons/Add';
 import Notification from './Notification';
+import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
     root: {
@@ -87,7 +88,9 @@ class NavBar extends Component {
                 <Container>
                     <Toolbar className={classes.Toolbar}>
                         <div>
-                            <Typography variant="h6" >
+                            <Typography variant="h6" style={{cursor:'pointer'}} onClick={()=>{
+                                this.props.history.push('/')
+                            }}>
                                 WorkeHub
                         </Typography>
                         </div>
@@ -115,4 +118,4 @@ class NavBar extends Component {
     }
 }
 
-export default withStyles(styles)(NavBar)
+export default withRouter(withStyles(styles)(NavBar)) 

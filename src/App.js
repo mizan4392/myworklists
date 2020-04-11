@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import TodoLists from './Components/TodoLists/TodoLists';
 import NavBar from './Components/NavBar';
 import {Container} from '@material-ui/core'
 import {
@@ -14,6 +13,7 @@ import * as ROUTE from './utils/Routs'
 import Home from './Pages/Home';
 import Todos from './Components/Todos'
 import Projects from './Components/Projects';
+import Page_ProjectDetailes from './Pages/Page_ProjectDetailes';
 
 class App extends React.Component {
 
@@ -21,13 +21,14 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        
-          <NavBar />
+          
           <Router>
+          <NavBar />
           <Container>
             <Route exact path={ROUTE.ROOT} component={withRouter(Home)} />
             <Route exact path={ROUTE.TODOS} component={withRouter(Todos)} />
             <Route exact path={ROUTE.PROJECTS} component={withRouter(Projects)} />
+            <Route exact path={ROUTE.PROJECT} component={withRouter(Page_ProjectDetailes)} />
           </Container>
           </Router>
         

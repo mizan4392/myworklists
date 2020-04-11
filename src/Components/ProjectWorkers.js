@@ -14,7 +14,8 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import {withRouter} from 'react-router-dom'
+
+
 
 const styles = theme => ({
     Todos: {
@@ -29,10 +30,6 @@ const styles = theme => ({
         justifyContent: 'center',
         background: 'green'
     },
-    ListItemText:{
-        cursor:'pointer'
-    }
-    ,
     CreateTodos: {
         textAlign: 'center',
         color: '#fff',
@@ -40,23 +37,30 @@ const styles = theme => ({
     }
 })
 
-class Projects extends Component {
 
-    handleProjectClick = projectId=>{
-        console.log(projectId)
-        this.props.history.push("/project")
-    }
+
+class ProjectWorkers extends Component {
+
+
+
     render() {
-        const { classes } = this.props
+
+        const {classes } = this.props
+
         const renderTodosList = [1, 2, 3, 4].map(i => {
             return (
                 <ListItem key={i}>
-                    
+                    <ListItemAvatar>
+                        <IconButton>
+                            <Tooltip title="Detailes">
+                                <VisibilityIcon />
+                            </Tooltip>
+                        </IconButton>
+
+                    </ListItemAvatar>
                     <ListItemText
                         primary="Single-line item"
                         secondary='Secondary text'
-                       className={classes.ListItemText}
-                        onClick={()=>this.handleProjectClick(i)}
                     />
                     <ListItemSecondaryAction>
                         <IconButton edge="end" aria-label="edit">
@@ -75,23 +79,17 @@ class Projects extends Component {
             )
         })
 
+
         return (
-            <div style={{ marginTop: '9%' }}>
-                <Paper>
-                    <h3 className={classes.Todos} onClick={()=>{
-                        if(this.props.history.location.pathname !== "/projects"){
-                            this.props.history.push('/projects')
-                        }
-                    }}> Projects </h3>
-                    <List >
-                        {renderTodosList}
-                        <ListItem className={classes.ListItem}>
-                            <Button className={classes.CreateTodos} >Create New Projects</Button>
-                        </ListItem>
-                    </List>
-                </Paper>
-            </div>
+            <Paper>
+            <List >
+                {renderTodosList}
+                <ListItem className={classes.ListItem}>
+                    <Button className={classes.CreateTodos}>Add New Worker</Button>
+                </ListItem>
+            </List>
+        </Paper>
         )
     }
 }
-export default  withStyles(styles)(withRouter(Projects))
+export default withStyles(styles)(ProjectWorkers)
